@@ -1,0 +1,664 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: url("background.png") no-repeat center center fixed;
+  /* background-size: cover; */
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+.outer {
+  position: relative;
+  width: 1920px;
+  height: 1080px;
+  overflow: hidden;
+}
+
+img,
+video {
+  position: absolute;
+  object-fit: contain; /* 비율을 유지하면서 이미지가 화면을 벗어나지 않도록 설정 */
+}
+
+/* black.png */
+#black {
+  width: calc(982 / 1920 * 100%); /* 너비를 1920 기준으로 비율 계산 */
+  height: calc(754 / 1080 * 100%); /* 높이를 1080 기준으로 비율 계산 */
+  left: calc(395 / 1920 * 100%); /* X 좌표 */
+  top: calc(200 / 1080 * 100%); /* Y 좌표 */
+}
+
+#my-video {
+  position: absolute;
+  width: 710px; /* 너비 조정 */
+  height: 400px; /* 비율 유지 */
+  left: calc(460 / 1920 * 100%); /* 원하는 위치 */
+  top: calc(390 / 1080 * 100%); /* 원하는 위치 */
+  /* z-index: 5; 다른 이미지들과 겹치도록 z-index 설정 */
+  z-index: 5;
+}
+
+/* tv.png */
+#tv {
+  width: calc(1317 / 1920 * 100%);
+  height: calc(782 / 1080 * 100%);
+  left: calc(385 / 1920 * 100%);
+  top: calc(194 / 1080 * 100%);
+  z-index: 6;
+}
+
+/* 1.png */
+#step-1-btn-img {
+  width: calc(59 / 1920 * 100%);
+  height: calc(77 / 1080 * 100%);
+  left: calc(1316 / 1920 * 100%);
+  top: calc(456 / 1080 * 100%);
+  z-index: 6;
+}
+
+/* 2.png */
+#step-2-btn-img {
+  width: calc(113 / 1920 * 100%);
+  height: calc(87 / 1080 * 100%);
+  left: calc(1293 / 1920 * 100%);
+  top: calc(527 / 1080 * 100%);
+  z-index: 6;
+}
+
+/* shuffle.png */
+/* #loop-img,
+#shuffle2 {
+  width: calc(61 / 1920 * 100%);
+  height: calc(76 / 1080 * 100%);
+  left: calc(1316 / 1920 * 100%);
+  top: calc(388 / 1080 * 100%);
+  z-index: 6;
+} */
+
+/* low.png */
+#decrease-volume-img {
+  width: calc(62 / 1920 * 100%);
+  height: calc(77 / 1080 * 100%);
+  left: calc(1443 / 1920 * 100%);
+  top: calc(393 / 1080 * 100%);
+  z-index: 6;
+}
+
+/* up.png */
+#increase-volume-img {
+  width: calc(62 / 1920 * 100%);
+  height: calc(71 / 1080 * 100%);
+  left: calc(1499 / 1920 * 100%);
+  top: calc(395 / 1080 * 100%);
+  z-index: 6;
+}
+
+/* likes.png */
+#like-btn {
+  position: absolute;
+  top: calc(470 / 1080 * 100%);
+  left: calc(1380 / 1920 * 100%);
+  z-index: 10;
+  width: 55px;
+  height: 50px;
+  background-image: url("likes.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  transition: transform 0.3s ease; /* 부드럽게 호버 효과 적용 */
+}
+
+/* sound.png */
+#mute-unmute-img,
+#nosound {
+  width: calc(62 / 1920 * 100%);
+  height: calc(70 / 1080 * 100%);
+  left: calc(1383 / 1920 * 100%);
+  top: calc(395 / 1080 * 100%);
+  z-index: 6;
+}
+
+/* play.png */
+#play-pause-img,
+#pause {
+  width: calc(138 / 1920 * 100%);
+  height: calc(145 / 1080 * 100%);
+  left: calc(1402 / 1920 * 100%);
+  top: calc(271 / 1080 * 100%);
+  z-index: 6;
+}
+
+/* button.png */
+#button {
+  width: calc(310 / 1920 * 100%);
+  height: calc(153 / 1080 * 100%);
+  left: calc(1395 / 1920 * 100%);
+  top: calc(453 / 1080 * 100%);
+  z-index: 6;
+}
+#previous-btn,
+#next-btn {
+  position: absolute;
+  z-index: 10; /* 다른 요소보다 위에 위치 */
+  width: 65px;
+  height: 65px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  transition: transform 0.3s ease; /* 부드러운 호버 효과 */
+}
+
+/* 각각의 버튼에 배경 이미지 적용 */
+#previous-btn {
+  top: calc(530 / 1080 * 100%);
+  left: calc(1400 / 1920 * 100%);
+  background-image: url("left.png"); /* 이전 이미지 */
+}
+
+#next-btn {
+  top: calc(530 / 1080 * 100%);
+  left: calc(1465 / 1920 * 100%);
+  background-image: url("right.png"); /* 다음 이미지 */
+}
+
+/* intro.png */
+#first-video-img {
+  width: calc(245 / 1920 * 100%);
+  height: calc(141 / 1080 * 100%);
+  left: calc(1318 / 1920 * 100%);
+  top: calc(607 / 1080 * 100%);
+  z-index: 6;
+}
+
+/* dance.png */
+#second-video-img {
+  width: calc(245 / 1920 * 100%);
+  height: calc(141 / 1080 * 100%);
+  left: calc(1318 / 1920 * 100%);
+  top: calc(748 / 1080 * 100%);
+  z-index: 6;
+}
+
+/* red.png */
+#red {
+  width: calc(421 / 1920 * 100%);
+  height: calc(680 / 1080 * 100%);
+  left: calc(-5 / 1920 * 100%);
+  top: calc(95 / 1080 * 100%);
+  z-index: 6;
+}
+
+/* frog.png */
+#frog {
+  width: calc(370 / 1920 * 100%);
+  height: calc(561 / 1080 * 100%);
+  left: calc(-3 / 1920 * 100%);
+  top: calc(300 / 1080 * 100%);
+  z-index: 6;
+}
+
+/* bandL.png */
+#bandL {
+  width: calc(492 / 1920 * 100%);
+  height: calc(309 / 1080 * 100%);
+  left: calc(0 / 1920 * 100%);
+  top: calc(735 / 1080 * 100%);
+  z-index: 6;
+}
+
+/* band.png */
+#band {
+  width: calc(339 / 1920 * 100%);
+  height: calc(508 / 1080 * 100%);
+  left: calc(1660 / 1920 * 100%);
+  top: calc(110 / 1080 * 100%);
+  z-index: 6;
+}
+
+/* pink.png */
+#pink {
+  width: calc(340 / 1920 * 100%);
+  height: calc(568 / 1080 * 100%);
+  left: calc(1548 / 1920 * 100%);
+  top: calc(348 / 1080 * 100%);
+  z-index: 6;
+}
+/* straw.png */
+#straw {
+  width: calc(569 / 1920 * 100%);
+  height: calc(606 / 1080 * 100%);
+  left: calc(1351 / 1920 * 100%);
+  top: calc(444 / 1080 * 100%);
+  z-index: 6;
+}
+
+/* straw2.png */
+#straw2 {
+  width: calc(90 / 1920 * 100%);
+  height: calc(106 / 1080 * 100%);
+  left: calc(1826 / 1920 * 100%);
+  top: calc(500 / 1080 * 100%);
+}
+
+/* bingsu.png */
+#bingsu {
+  width: calc(173 / 1920 * 100%);
+  height: calc(194 / 1080 * 100%);
+  left: calc(244 / 1920 * 100%);
+  top: calc(251 / 1080 * 100%);
+  z-index: 6;
+}
+
+/* cake.png */
+#cake {
+  width: calc(148 / 1920 * 100%);
+  height: calc(163 / 1080 * 100%);
+  left: calc(172 / 1920 * 100%);
+  top: calc(673 / 1080 * 100%);
+  z-index: 6;
+}
+
+/* heartcake.png */
+#heartcake {
+  width: calc(128 / 1920 * 100%);
+  height: calc(126 / 1080 * 100%);
+  left: calc(1553 / 1920 * 100%);
+  top: calc(247 / 1080 * 100%);
+  z-index: 6;
+}
+#bbf {
+  position: absolute;
+  width: calc(1700 / 1920 * 100%); /* 너비를 1920 기준으로 비율 계산 */
+  height: calc(1080 / 1080 * 100%); /* 높이를 1080 기준으로 비율 계산 */
+  left: calc(170 / 1920 * 100%); /* X 좌표 */
+  top: calc(-48 / 1080 * 100%); /* 비디오 아래에 배치 */
+  z-index: 5;
+}
+
+/* pudding.png */
+#pudding {
+  width: calc(123 / 1920 * 100%);
+  height: calc(118 / 1080 * 100%);
+  left: calc(1563 / 1920 * 100%);
+  top: calc(827 / 1080 * 100%);
+  z-index: 6;
+}
+
+.progress-bar {
+  width: calc(1000 / 1920 * 100%); /* TV와 같은 너비 설정 */
+  height: 20px;
+  background-color: #0071fa68;
+  position: absolute; /* 절대 위치 설정 */
+  top: calc(950 / 1080 * 100%); /* TV의 top + height 값 */
+  left: calc(510 / 1920 * 100%); /* TV와 같은 위치 */
+  z-index: 6; /* TV와 같은 계층 설정 */
+  border-radius: 10px;
+}
+#likes-container {
+  position: absolute;
+  top: 51.5vh; /* 화면 높이의 80%에 위치 */
+  left: 75.3vw; /* 화면 너비의 70%에 위치 */
+  font-size: 18px;
+  color: white;
+  z-index: 6;
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+}
+
+#likes-count {
+  font-weight: bold;
+  color: #ff5050;
+  font-family: "Roboto", sans-serif;
+}
+.video-title h1 {
+  position: absolute;
+  top: 38vh; /* 화면 높이의 80%에 위치 */
+  left: 26.3vw; /* 화면 너비의 70%에 위치 */
+  font-size: 20px;
+  color: white;
+  z-index: 7;
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+}
+
+@media (max-width: 768px) {
+  body {
+    background-size: contain;
+    background-color: #f8beeb;
+    background-position: center;
+  }
+
+  .outer {
+    /* width: 100vw; */
+    height: 100vh;
+    position: relative; /* 부모 컨테이너의 위치 기준을 명확히 설정 */
+  }
+
+  #background {
+    position: absolute;
+    width: 100vw;
+    height: auto; /* 비율 유지 */
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%); /* 중앙 정렬 */
+  }
+
+  #black {
+    width: calc(949 / 1920 * 100vw);
+    height: auto;
+    left: calc(410 / 1920 * 100vw);
+    top: calc(434 / 1080 * 100vh);
+  }
+
+  #my-video {
+    position: absolute;
+    width: 240px; /* 너비 조정 */
+    height: 140px; /* 비율 유지 */
+    left: calc(400 / 1920 * 100vw); /* 원하는 위치 */
+    top: calc(487 / 1080 * 100vh); /* 원하는 위치 */
+    /* z-index: 5; 다른 이미지들과 겹치도록 z-index 설정 */
+  }
+
+  #tv {
+    width: calc(1317 / 1920 * 100vw);
+    height: calc(782 / 1080 * 100vh);
+    left: calc(385 / 1920 * 100vw);
+    top: calc(165 / 1080 * 100vh);
+  }
+
+  #step-1-btn-img {
+    width: calc(71 / 1920 * 100vw);
+    height: calc(77 / 1080 * 100vh);
+    left: calc(1309 / 1920 * 100vw);
+    top: calc(487 / 1080 * 100vh);
+  }
+
+  #step-2-btn-img {
+    width: calc(113 / 1920 * 100vw);
+    height: calc(87 / 1080 * 100vh);
+    left: calc(1293 / 1920 * 100vw);
+    top: calc(507 / 1080 * 100vh);
+  }
+
+  /* #loop-img {
+    width: calc(61 / 1920 * 100vw);
+    height: calc(76 / 1080 * 100vh);
+    left: calc(1316 / 1920 * 100vw);
+    top: calc(467 / 1080 * 100vh);
+  } */
+
+  #decrease-volume-img {
+    width: calc(58 / 1920 * 100vw);
+    height: calc(77 / 1080 * 100vh);
+    left: calc(1443 / 1920 * 100vw);
+    top: calc(465 / 1080 * 100vh);
+  }
+
+  #increase-volume-img {
+    width: calc(62 / 1920 * 100vw);
+    height: calc(71 / 1080 * 100vh);
+    left: calc(1499 / 1920 * 100vw);
+    top: calc(468 / 1080 * 100vh);
+  }
+
+  #nosound,
+  #mute-unmute-img {
+    width: calc(62 / 1920 * 100vw);
+    height: calc(70 / 1080 * 100vh);
+    left: calc(1383 / 1920 * 100vw);
+    top: calc(469 / 1080 * 100vh);
+  }
+
+  #play-pause-img,
+  #pause {
+    width: calc(138 / 1920 * 100vw);
+    height: calc(145 / 1080 * 100vh);
+    left: calc(1402 / 1920 * 100vw);
+    top: calc(400 / 1080 * 100vh);
+  }
+
+  #button {
+    width: calc(310 / 1920 * 100vw);
+    height: calc(153 / 1080 * 100vh);
+    left: calc(1395 / 1920 * 100vw);
+    top: calc(461 / 1080 * 100vh);
+  }
+  #previous-btn,
+  #next-btn {
+    position: absolute;
+    z-index: 10; /* 다른 요소보다 위에 위치 */
+    width: 17px;
+    height: 17px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    transition: transform 0.3s ease; /* 부드러운 호버 효과 */
+  }
+  #previous-btn {
+    top: calc(537 / 1080 * 100%);
+    left: calc(1400 / 1920 * 100%);
+    background-image: url("left.png"); /* 이전 이미지 */
+  }
+
+  #next-btn {
+    top: calc(537 / 1080 * 100%);
+    left: calc(1476 / 1920 * 100%);
+    background-image: url("right.png"); /* 다음 이미지 */
+  }
+
+  #first-video-img {
+    width: calc(245 / 1920 * 100vw);
+    height: calc(141 / 1080 * 100vh);
+    left: calc(1318 / 1920 * 100vw);
+    top: calc(519 / 1080 * 100vh);
+  }
+
+  #second-video-img {
+    width: calc(245 / 1920 * 100vw);
+    height: calc(141 / 1080 * 100vh);
+    left: calc(1318 / 1920 * 100vw);
+    top: calc(568 / 1080 * 100vh);
+  }
+
+  #red {
+    width: calc(421 / 1920 * 100vw);
+    height: calc(680 / 1080 * 100vh);
+    left: calc(0 / 1920 * 100vw);
+    top: calc(170 / 1080 * 100vh);
+  }
+
+  #frog {
+    width: calc(370 / 1920 * 100vw);
+    height: calc(561 / 1080 * 100vh);
+    left: calc(-3 / 1920 * 100vw);
+    top: calc(290 / 1080 * 100vh);
+  }
+
+  #bandL {
+    width: calc(492 / 1920 * 100vw);
+    height: calc(309 / 1080 * 100vh);
+    left: calc(0 / 1920 * 100vw);
+    top: calc(512 / 1080 * 100vh);
+  }
+
+  #band {
+    width: calc(339 / 1920 * 100vw);
+    height: calc(508 / 1080 * 100vh);
+    left: calc(1583 / 1920 * 100vw);
+    top: calc(220 / 1080 * 100vh);
+  }
+
+  #pink {
+    width: calc(340 / 1920 * 100vw);
+    height: calc(568 / 1080 * 100vh);
+    left: calc(1548 / 1920 * 100vw);
+    top: calc(290 / 1080 * 100vh);
+  }
+
+  #straw {
+    width: calc(569 / 1920 * 100vw);
+    height: calc(606 / 1080 * 100vh);
+    left: calc(1351 / 1920 * 100vw);
+    top: calc(313 / 1080 * 100vh);
+    z-index: 6;
+  }
+
+  #straw2 {
+    width: calc(90 / 1920 * 100vw);
+    height: calc(106 / 1080 * 100vh);
+    left: calc(1820 / 1920 * 100vw);
+    top: calc(480 / 1080 * 100vh);
+    z-index: 6;
+  }
+
+  #bingsu {
+    width: calc(173 / 1920 * 100vw);
+    height: calc(194 / 1080 * 100vh);
+    left: calc(244 / 1920 * 100vw);
+    top: calc(400 / 1080 * 100vh);
+  }
+
+  #cake {
+    width: calc(148 / 1920 * 100vw);
+    height: calc(163 / 1080 * 100vh);
+    left: calc(172 / 1920 * 100vw);
+    top: calc(530 / 1080 * 100vh);
+  }
+  #bbf {
+    position: absolute;
+    width: calc(1700 / 1920 * 100vw); /* 너비를 1920 기준으로 비율 계산 */
+    height: calc(1080 / 1080 * 100vh); /* 높이를 1080 기준으로 비율 계산 */
+    left: calc(170 / 1920 * 100vw); /* X 좌표 */
+    top: calc(-20 / 1080 * 100vh); /* 비디오 아래에 배치 */
+    z-index: 5;
+  }
+  #heartcake {
+    width: calc(128 / 1920 * 100vw);
+    height: calc(126 / 1080 * 100vh);
+    left: calc(1553 / 1920 * 100vw);
+    top: calc(400 / 1080 * 100vh);
+  }
+
+  #pudding {
+    width: calc(123 / 1920 * 100vw);
+    height: calc(118 / 1080 * 100vh);
+    left: calc(1563 / 1920 * 100vw);
+    top: calc(600 / 1080 * 100vh);
+    z-index: 6;
+  }
+  #like-btn {
+    position: absolute;
+    top: calc(900 / 1080 * 100vw);
+    left: calc(790 / 1920 * 100vh);
+    z-index: 10;
+    width: 15px;
+    height: 20px;
+    background-image: url("likes.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    transition: transform 0.3s ease; /* 부드럽게 호버 효과 적용 */
+  }
+  #likes-container {
+    position: absolute;
+    top: calc(522 / 1080 * 100%); /* TV 이미지 아래에 배치 */
+    left: calc(1450 / 1920 * 100%); /* 원하는 위치로 조정 */
+    font-size: 5px; /* 텍스트 크기 */
+    color: white; /* 텍스트 색상 */
+    z-index: 7; /* 다른 이미지 위에 표시되도록 z-index 설정 */
+  }
+
+  #likes-count {
+    font-weight: bold; /* 좋아요 숫자 강조 */
+    color: #ff5050; /* 좋아요 숫자 색상 */
+  }
+  .video-title h1 {
+    position: absolute;
+    top: 44vh; /* 화면 높이의 80%에 위치 */
+    left: 26.3vw; /* 화면 너비의 70%에 위치 */
+    font-size: 8px;
+    color: white;
+    z-index: 7;
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+  }
+  .progress-bar {
+    width: calc(1000 / 1920 * 100vw); /* TV와 같은 너비 설정 */
+    height: 9px;
+    background-color: #0071fa68;
+    position: absolute; /* 절대 위치 설정 */
+    top: calc(1210 / 1080 * 100vw); /* TV의 top + height 값 */
+    left: calc(285 / 1920 * 100vh); /* TV와 같은 위치 */
+    border-radius: 10px;
+    z-index: 6; /* TV와 같은 계층 설정 */
+  }
+}
+
+button {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer; /* 버튼처럼 클릭 가능한 효과 추가 */
+}
+
+button:focus {
+  outline: none; /* 버튼 클릭 시 나타나는 테두리 제거 */
+}
+
+#like-btn:hover {
+  transform: scale(1.1); /* 호버 시 크기 확대 효과 */
+}
+
+#previous-img:hover,
+#next-img:hover {
+  transition: transform 0.3s ease;
+  transform: scale(1.1);
+}
+
+.video-list img:hover {
+  scale: 0.96;
+}
+
+.timeline img:hover {
+  transition: transform 0.3s ease; /* 부드럽게 확대 */
+  transform: scale(1.1); /* 이미지 크기를 1.1배로 확대 */
+}
+
+#previous-btn:hover,
+#next-btn:hover {
+  transform: scale(1.1);
+}
+
+.progress-bar span {
+  display: block;
+  height: 100%;
+  background-color: rgb(255, 80, 214);
+  width: 0;
+  transition: width 0.3s ease;
+  border-radius: 10px;
+}
+
+#play-pause-btn img:hover,
+#mute-unmute-btn img:hover,
+#decrease-volume-btn img:hover,
+#increase-volume-btn img:hover {
+  transition: transform 0.3s ease; /* 부드럽게 확대 */
+  transform: scale(1.1); /* 호버 시 크기 확대 */
+}
