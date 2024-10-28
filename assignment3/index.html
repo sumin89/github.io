@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Link to the main stylesheet for the page -->
+    <link id="pagestyle" rel="stylesheet" href="style.css" />
+    <!-- Link to Google Fonts for custom font styles -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&family=Shadows+Into+Light&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>Puzzle game</title>
+  </head>
+  <body>
+    <!-- Background container, styling is defined in CSS -->
+    <div id="background-container"></div>
+
+    <!-- Foreground image container -->
+    <div id="foreground-container">
+      <!-- Foreground image that will be hidden when the puzzle starts -->
+      <img src="IMG_0537.PNG" alt="Foreground Image" id="foreground-image" />
+      <!-- Upload area for selecting images -->
+      <div id="upload-area">
+        <div id="title-container">
+          <h2>Upload Your Images</h2>
+        </div>
+        <div id="file-container">
+          <!-- Upload box for the first image -->
+          <div class="upload-box">
+            <!-- <label for="image-upload1">Upload Image 1:</label> -->
+            <input type="file" id="image-upload1" accept="image/*" />
+          </div>
+          <!-- Upload box for the second image -->
+          <div class="upload-box">
+            <!-- <label for="image-upload2">Upload Image 2:</label> -->
+            <input type="file" id="image-upload2" accept="image/*" />
+          </div>
+          <!-- Upload box for the third image -->
+          <div class="upload-box">
+            <!-- <label for="image-upload3">Upload Image 3:</label> -->
+            <input type="file" id="image-upload3" accept="image/*" />
+          </div>
+        </div>
+        <!-- Button to create the puzzle, initially disabled -->
+        <button id="create-puzzle-btn" disabled>Create Puzzle</button>
+      </div>
+    </div>
+
+    <!-- Puzzle container, initially hidden -->
+    <div id="puzzle-container" style="display: none; position: relative">
+      <!-- Stage title, will be updated dynamically -->
+      <div id="stage-title" class="text-background"></div>
+      <!-- Puzzle grid where the pieces will be placed -->
+      <div id="puzzle-grid"></div>
+      <!-- Success message that appears when the puzzle is solved -->
+      <div id="success-msg" class="center-message">Puzzle Solved!</div>
+      <!-- Button to move to the next stage, initially hidden -->
+      <button id="next-stage-btn" class="hidden">Next Stage</button>
+      <!-- Restart button, only shown after the final stage -->
+      <button id="restart-btn" style="display: none">Restart</button>
+    </div>
+
+    <!-- Link to the JavaScript file that handles the puzzle logic -->
+    <script src="script.js"></script>
+    <script>
+      document
+        .getElementById("create-puzzle-btn")
+        .addEventListener("click", function () {
+          document
+            .getElementById("pagestyle")
+            .setAttribute("href", "stage1.css");
+          document.getElementById("foreground-image").style.display = "none"; // 전경 이미지 숨기기
+        });
+
+      document
+        .getElementById("next-stage-btn")
+        .addEventListener("click", function () {
+          const currentHref = document
+            .getElementById("pagestyle")
+            .getAttribute("href");
+          if (currentHref === "stage1.css") {
+            document
+              .getElementById("pagestyle")
+              .setAttribute("href", "stage2.css");
+          } else if (currentHref === "stage2.css") {
+            document
+              .getElementById("pagestyle")
+              .setAttribute("href", "stage3.css");
+          }
+        });
+    </script>
+  </body>
+</html>

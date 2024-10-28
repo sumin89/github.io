@@ -1,0 +1,149 @@
+/* Stage 2 styling */
+
+/* Basic settings for body and html elements */
+body,
+html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+}
+
+/* Background image container styling */
+#background-container {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  background-image: url("4.GIF"); /* Stage 2 background image */
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+}
+
+/* Foreground image container styling */
+#foreground-container {
+  background-image: url("3.png");
+  position: fixed;
+  width: 100%; /* Set width to 100% to match the screen */
+  height: 100%; /* Set height to 100% to match the screen */
+  top: 0;
+  left: 0;
+  z-index: 1;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Puzzle container styling for stage */
+#puzzle-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 5;
+  width: 400px;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Puzzle grid settings */
+#puzzle-grid {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  gap: 2px;
+  background-color: #ccc;
+  z-index: 4;
+  position: relative; /* Set position to relative to serve as a reference for children */
+}
+
+/* Puzzle piece styling */
+.puzzle-piece {
+  box-sizing: border-box;
+  border: none; /* Remove border */
+  margin: 0; /* Remove margin */
+  background-size: cover;
+  cursor: grab;
+  z-index: 6;
+}
+
+/* Change cursor to grabbing when a puzzle piece is active (clicked) */
+.puzzle-piece:active {
+  cursor: grabbing;
+}
+
+/* Button general styling */
+button {
+  padding: 10px 20px;
+  margin-top: 20px;
+  font-size: 1em;
+  cursor: pointer;
+  border: 2px solid #000; /* Set border to black */
+  background-color: #333;
+  color: #fff;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  z-index: 4;
+}
+
+/* Text background styling for stage title or other messages */
+.text-background {
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.7
+  ); /* Dark semi-transparent black background */
+  color: white;
+  padding: 10px 15px;
+  border-radius: 8px;
+  font-size: 1.2em;
+  margin-bottom: 20px; /* Add margin between puzzle and title */
+  font-family: "Gloria Hallelujah", cursive;
+}
+
+/* Styling for center message (e.g., puzzle solved) */
+.center-message {
+  position: absolute; /* Absolute position within parent element */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000; /* Position above puzzle pieces */
+  font-size: 2em;
+  text-align: center;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  border-radius: 10px;
+  display: none;
+  pointer-events: none; /* Prevent message from blocking drag events */
+}
+
+/* Responsive styling for screens with max-width of 768px */
+@media (max-width: 768px) {
+  #puzzle-container {
+    transform: translate(-50%, -50%) scale(0.8); /* Scale down on smaller screens */
+  }
+  button {
+    font-size: 0.9em; /* Reduce button size */
+    padding: 8px 16px;
+  }
+}
+
+/* Further responsive styling for screens with max-width of 480px */
+@media (max-width: 480px) {
+  #puzzle-container {
+    transform: translate(-50%, -50%) scale(0.6); /* Scale down more on very small screens */
+  }
+  button {
+    font-size: 0.8em; /* Further reduce button size */
+    padding: 6px 12px;
+  }
+}
